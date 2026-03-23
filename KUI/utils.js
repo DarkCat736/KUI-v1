@@ -1,6 +1,12 @@
 //consts
 const LINEAR = "gradient_linear";
 const RADIAL = "gradient_radial";
+const CENTER = "center";
+const LEFT = "left";
+const RIGHT = "right";
+const TOP = "top";
+const MIDDLE = "middle";
+const BOTTOM = "bottom";
 let currentWindow = null;
 
 class KUIGradient {
@@ -23,5 +29,22 @@ class KUIGradient {
         }
 
         return this.generatedGradient;
+    }
+}
+
+class KUIFont {
+    constructor({font = "Arial", size = 30, color = [0, 0, 0], horizontalAlignment = LEFT, verticalAlignment = TOP} = {}) {
+        this.font = font;
+        this.size = size;
+        this.color = color;
+        this.horizontalAlignment = horizontalAlignment;
+        this.verticalAlignment = verticalAlignment;
+    }
+
+    setContextToFont() {
+        KUIWriter.winCtx.font = `${this.size}px ${this.font}`;
+        KUIWriter.winCtx.fillStyle = `rgb(${this.color[0]}, ${this.color[1]}, ${this.color[2]})`;
+        KUIWriter.winCtx.textAlign = this.horizontalAlignment;
+        KUIWriter.winCtx.textBaseline = this.verticalAlignment;
     }
 }

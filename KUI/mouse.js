@@ -5,6 +5,7 @@ let KUIMouse = {
     trueY: 0,
     event: null,
     clicked: false,
+    clickedDownFrame: false,
     calcMousePosRelativeToCurrentWindow: function(mouseEvent) {
         const windowBoundingBox = document.getElementById("KUIWindow-"+KUIWriter.currentWindowEditing).getBoundingClientRect();
 

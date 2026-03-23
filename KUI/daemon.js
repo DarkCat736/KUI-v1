@@ -9,13 +9,9 @@ let KUIDaemon = {
     tick: function() {
         //tick all windows
         for (let i = 0; i < KUIDaemon.windows.opened.length; i++) {
+            KUIMouse.calcMousePosRelativeToCurrentWindow();
             KUIDaemon.windows.opened[i].tick();
-            for (let e = 0; e < KUIDaemon.windows.opened[i].elements.length; e++) {
-                KUIDaemon.windows.opened[i].elements[i].tick();
-            }
         }
-
-        KUIMouse.calcMousePosRelativeToCurrentWindow();
 
         //always MUST end with calling the function again
         requestAnimationFrame(KUIDaemon.tick);
